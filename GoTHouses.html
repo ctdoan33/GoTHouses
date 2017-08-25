@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GoTHouses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="GoTHouses.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+             $(document).ready(function(){
+                 $("img").click(function(){
+                    var url="https://www.anapioficeandfire.com/api/houses/"+$(this).attr("id")+"/";
+                    $.get(url, function(house){
+                        $("#name").text("Name: "+house.name);
+                        $("#words").text("Words: "+house.words);
+                        $("#titles").text("Titles: "+house.titles);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <img class="house" id="17" src="baratheon.png" alt="House Baratheon Coat of Arms">
+        <img class="house" id="229" src="lannister.jpg" alt="House Lannister Coat of Arms">
+        <img class="house" id="362" src="stark.jpg" alt="House Stark Coat of Arms">
+        <img class="house" id="378" src="targaryen.jpg" alt="House Targaryen Coat of Arms">
+        <div>
+            <h1>House Details</h1>
+            <p id="name"></p>
+            <p id="words"></p>
+            <p id="titles"></p>
+        </div>
+    </body>
+</html>
